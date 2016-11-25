@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:icon="@mipmap/ic_launcher"
+        android:key="key"
+        android:summary="on_or_off"
+        android:title="title" />
+    <CheckBoxPreference
+        android:key="check"
+        android:summary="checkbox"
+        android:title="check" />
+</PreferenceScreen>
