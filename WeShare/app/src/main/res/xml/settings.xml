@@ -2,7 +2,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
-        android:icon="@mipmap/ic_launcher"
         android:key="key"
         android:summary="on_or_off"
         android:title="title" />

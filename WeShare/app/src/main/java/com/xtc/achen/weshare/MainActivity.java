@@ -1,46 +1,32 @@
 package com.xtc.achen.weshare;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
-public class MainActivity extends PreferenceActivity {
-    private static final String TAG = "MainActivity";
-    SwitchPreference swp;
-    CheckBoxPreference cbp;
+
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        addPreferencesFromResource(R.xml.settings);
-
-        swp = (SwitchPreference) findPreference("key");
-        cbp = (CheckBoxPreference) findPreference("check");
-
-
+        setContentView(R.layout.activity_main);
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, 0, 0, "settings");
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        if (preference instanceof SwitchPreference) {
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        if (item.getItemId() == 0) {
 
-            if (swp.isChecked()) {
-                Log.d(TAG, "SwitchPreference is checked");
-            }
+            startActivity(new Intent(MainActivity.this, Settings.class));
         }
-
-        if (preference instanceof CheckBoxPreference) {
-
-            if (cbp.isChecked()) {
-                Log.d(TAG, "CheckBoxPreference is checked");
-            }
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        return super.onMenuItemSelected(featureId, item);
     }
 }
